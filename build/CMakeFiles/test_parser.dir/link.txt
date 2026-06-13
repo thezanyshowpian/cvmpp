@@ -1,1 +1,0 @@
-/usr/bin/c++ -g -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/test_parser.dir/tests/test_parser.cpp.o CMakeFiles/test_parser.dir/src/lexer.cpp.o CMakeFiles/test_parser.dir/src/parser.cpp.o CMakeFiles/test_parser.dir/src/disassembler.cpp.o -o test_parser

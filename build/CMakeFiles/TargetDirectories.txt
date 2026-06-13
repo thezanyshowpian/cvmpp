@@ -1,9 +1,0 @@
-/Users/mdadnankhalid/cvmpp/build/CMakeFiles/cvm.dir
-/Users/mdadnankhalid/cvmpp/build/CMakeFiles/test_lexer.dir
-/Users/mdadnankhalid/cvmpp/build/CMakeFiles/test_parser.dir
-/Users/mdadnankhalid/cvmpp/build/CMakeFiles/test_disassembler.dir
-/Users/mdadnankhalid/cvmpp/build/CMakeFiles/test_compiler.dir
-/Users/mdadnankhalid/cvmpp/build/CMakeFiles/test_vm.dir
-/Users/mdadnankhalid/cvmpp/build/CMakeFiles/test.dir
-/Users/mdadnankhalid/cvmpp/build/CMakeFiles/edit_cache.dir
-/Users/mdadnankhalid/cvmpp/build/CMakeFiles/rebuild_cache.dir

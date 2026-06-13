@@ -1,1 +1,0 @@
-/usr/bin/c++ -g -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/test_vm.dir/tests/test_vm.cpp.o CMakeFiles/test_vm.dir/src/lexer.cpp.o CMakeFiles/test_vm.dir/src/parser.cpp.o CMakeFiles/test_vm.dir/src/compiler.cpp.o CMakeFiles/test_vm.dir/src/disassembler.cpp.o CMakeFiles/test_vm.dir/src/vm.cpp.o -o test_vm
