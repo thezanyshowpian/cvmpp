@@ -16,6 +16,34 @@ int Compiler::identifierIndex(const std::string& name) {
     return chunk_.addIdentifier(name);
 }
 
+size_t Compiler::emitJump(OpCode op, int line) {
+    chunk_.writeOpCode(op, line);
+    chunk_.writeByte(0xFF, line);
+    chunk_.writeByte(0xFF, line);
+    return chunk_.code.size() - 2;
+}
+
+void Compiler::patchJump(size_t jumpOffset, int line) {
+    size_t distance = chunk_.code.size() - jumpOffset - 2;
+    if (distance > static_cast<size_t>(UINT16_MAX)) {
+        error(line, "jump distance exceeds 65535 bytes");
+        return;
+    }
+    auto d = static_cast<uint16_t>(distance);
+    chunk_.code[jumpOffset]     = static_cast<uint8_t>((d >> 8) & 0xFF);
+    chunk_.code[jumpOffset + 1] = static_cast<uint8_t>(d & 0xFF);
+}
+
+void Compiler::emitLoop(size_t loopStart, int line) {
+    chunk_.writeOpCode(OpCode::OP_LOOP, line);
+    size_t offset = chunk_.code.size() + 2 - loopStart;
+    if (offset > static_cast<size_t>(UINT16_MAX)) {
+        error(line, "loop body exceeds 65535 bytes");
+        return;
+    }
+    chunk_.writeShort(static_cast<uint16_t>(offset), line);
+}
+
 Chunk Compiler::compile(const std::vector<StmtPtr>& stmts) {
     chunk_    = Chunk{};
     hadError_ = false;
@@ -95,13 +123,36 @@ void Compiler::visitPrintStmt(PrintStmt& s) {
 }
 
 void Compiler::visitIfStmt(IfStmt& s) {
-    error(s.line, "if statement not yet implemented (phase 7)");
+    compileExpr(*s.condition);
+    size_t thenJump = emitJump(OpCode::OP_JUMP_IF_FALSE, s.line);
+    chunk_.writeOpCode(OpCode::OP_POP, s.line);    // pop condition — true path
+
+    s.thenBranch->accept(*this);
+
+    size_t elseJump = emitJump(OpCode::OP_JUMP, s.line);  // skip false-path pop (+ else)
+    patchJump(thenJump, s.line);
+    chunk_.writeOpCode(OpCode::OP_POP, s.line);    // pop condition — false path
+
+    if (s.elseBranch != nullptr)
+        s.elseBranch->accept(*this);
+    patchJump(elseJump, s.line);
 }
 
 void Compiler::visitWhileStmt(WhileStmt& s) {
-    error(s.line, "while statement not yet implemented (phase 7)");
+    size_t loopStart = chunk_.code.size();
+
+    compileExpr(*s.condition);
+    size_t exitJump = emitJump(OpCode::OP_JUMP_IF_FALSE, s.line);
+    chunk_.writeOpCode(OpCode::OP_POP, s.line);    // pop condition — true path
+
+    s.body->accept(*this);
+    emitLoop(loopStart, s.line);
+
+    patchJump(exitJump, s.line);
+    chunk_.writeOpCode(OpCode::OP_POP, s.line);    // pop condition — false path
 }
 
 void Compiler::visitBlockStmt(BlockStmt& s) {
-    error(s.line, "block statement not yet implemented (phase 7)");
+    for (const auto& stmt : s.statements)
+        stmt->accept(*this);
 }

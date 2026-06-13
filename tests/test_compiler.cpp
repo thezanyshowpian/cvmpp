@@ -140,6 +140,35 @@ static void testMultipleStmts() {
     check(chunk.code[6] == op(OpCode::OP_HALT),     "program ends with HALT");
 }
 
+// ── Test H: if-no-else bytecode structure ─────────────────────────────────────
+
+static void testIfNoElseBytecode() {
+    std::cout << "\nTest H: if without else — bytecode structure\n";
+    // if (true) { print 1; }
+    // [0]  OP_TRUE
+    // [1]  OP_JUMP_IF_FALSE  [2]=0x00 [3]=0x07  (distance=7, lands at [11])
+    // [4]  OP_POP            ← true path: pop condition
+    // [5]  OP_CONSTANT  [6]=0x00
+    // [7]  OP_PRINT
+    // [8]  OP_JUMP      [9]=0x00 [10]=0x01  (distance=1, lands at [12])
+    // [11] OP_POP            ← false path: pop condition
+    // [12] OP_HALT
+    Chunk chunk = compile("if (true) { print 1; }");
+    check(chunk.code.size() == 13,                          "13 bytes total");
+    check(chunk.code[0]  == op(OpCode::OP_TRUE),            "byte 0: OP_TRUE");
+    check(chunk.code[1]  == op(OpCode::OP_JUMP_IF_FALSE),   "byte 1: OP_JUMP_IF_FALSE");
+    check(chunk.code[2]  == 0x00,                           "byte 2: jump hi = 0");
+    check(chunk.code[3]  == 0x07,                           "byte 3: jump lo = 7");
+    check(chunk.code[4]  == op(OpCode::OP_POP),             "byte 4: OP_POP (true path)");
+    check(chunk.code[5]  == op(OpCode::OP_CONSTANT),        "byte 5: OP_CONSTANT");
+    check(chunk.code[7]  == op(OpCode::OP_PRINT),           "byte 7: OP_PRINT");
+    check(chunk.code[8]  == op(OpCode::OP_JUMP),            "byte 8: OP_JUMP");
+    check(chunk.code[9]  == 0x00,                           "byte 9: skip hi = 0");
+    check(chunk.code[10] == 0x01,                           "byte 10: skip lo = 1");
+    check(chunk.code[11] == op(OpCode::OP_POP),             "byte 11: OP_POP (false path)");
+    check(chunk.code[12] == op(OpCode::OP_HALT),            "byte 12: OP_HALT");
+}
+
 // ─────────────────────────────────────────────────────────────────────────────
 
 int main() {
@@ -150,6 +179,7 @@ int main() {
     testComparisons();
     testSubDiv();
     testMultipleStmts();
+    testIfNoElseBytecode();
     std::cout << '\n' << g_passed << " passed, " << g_failed << " failed\n";
     return g_failed == 0 ? 0 : 1;
 }

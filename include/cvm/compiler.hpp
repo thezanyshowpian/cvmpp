@@ -13,9 +13,12 @@ private:
     Chunk chunk_;
     bool  hadError_ = false;
 
-    void compileExpr(Expr& e);
-    void error(int line, const std::string& msg);
-    int  identifierIndex(const std::string& name);
+    void   compileExpr(Expr& e);
+    void   error(int line, const std::string& msg);
+    int    identifierIndex(const std::string& name);
+    size_t emitJump(OpCode op, int line);
+    void   patchJump(size_t jumpOffset, int line);
+    void   emitLoop(size_t loopStart, int line);
 
     // ExprVisitor
     void visitLiteralExpr(Literal& e)   override;

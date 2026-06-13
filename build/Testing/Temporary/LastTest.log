@@ -1,10 +1,10 @@
-Start testing: Jun 13 21:50 IST
+Start testing: Jun 13 22:15 IST
 ----------------------------------------------------------
 1/5 Testing: LexerPhase1
 1/5 Test: LexerPhase1
 Command: "/Users/mdadnankhalid/cvmpp/build/test_lexer"
 Directory: /Users/mdadnankhalid/cvmpp/build
-"LexerPhase1" start time: Jun 13 21:50 IST
+"LexerPhase1" start time: Jun 13 22:15 IST
 Output:
 ----------------------------------------------------------
 --- testBasicStream ---
@@ -72,7 +72,7 @@ All tests passed.
 Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
-"LexerPhase1" end time: Jun 13 21:50 IST
+"LexerPhase1" end time: Jun 13 22:15 IST
 "LexerPhase1" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -80,7 +80,7 @@ Test Passed.
 2/5 Test: ParserPhase2
 Command: "/Users/mdadnankhalid/cvmpp/build/test_parser"
 Directory: /Users/mdadnankhalid/cvmpp/build
-"ParserPhase2" start time: Jun 13 21:50 IST
+"ParserPhase2" start time: Jun 13 22:15 IST
 Output:
 ----------------------------------------------------------
 All parser tests passed.
@@ -88,7 +88,7 @@ All parser tests passed.
 Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
-"ParserPhase2" end time: Jun 13 21:50 IST
+"ParserPhase2" end time: Jun 13 22:15 IST
 "ParserPhase2" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -96,7 +96,7 @@ Test Passed.
 3/5 Test: ChunkDisasmPhase3
 Command: "/Users/mdadnankhalid/cvmpp/build/test_disassembler"
 Directory: /Users/mdadnankhalid/cvmpp/build
-"ChunkDisasmPhase3" start time: Jun 13 21:50 IST
+"ChunkDisasmPhase3" start time: Jun 13 22:15 IST
 Output:
 ----------------------------------------------------------
 Test A: Chunk API
@@ -146,7 +146,7 @@ Test D: Jump instruction disassembly
 Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
-"ChunkDisasmPhase3" end time: Jun 13 21:50 IST
+"ChunkDisasmPhase3" end time: Jun 13 22:15 IST
 "ChunkDisasmPhase3" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -154,7 +154,7 @@ Test Passed.
 4/5 Test: CompilerPhase4
 Command: "/Users/mdadnankhalid/cvmpp/build/test_compiler"
 Directory: /Users/mdadnankhalid/cvmpp/build
-"CompilerPhase4" start time: Jun 13 21:50 IST
+"CompilerPhase4" start time: Jun 13 22:15 IST
 Output:
 ----------------------------------------------------------
 Test A: integer literal
@@ -215,12 +215,27 @@ Test G: multiple expression statements
   PASS: second stmt ends with POP
   PASS: program ends with HALT
 
-44 passed, 0 failed
+Test H: if without else — bytecode structure
+  PASS: 13 bytes total
+  PASS: byte 0: OP_TRUE
+  PASS: byte 1: OP_JUMP_IF_FALSE
+  PASS: byte 2: jump hi = 0
+  PASS: byte 3: jump lo = 7
+  PASS: byte 4: OP_POP (true path)
+  PASS: byte 5: OP_CONSTANT
+  PASS: byte 7: OP_PRINT
+  PASS: byte 8: OP_JUMP
+  PASS: byte 9: skip hi = 0
+  PASS: byte 10: skip lo = 1
+  PASS: byte 11: OP_POP (false path)
+  PASS: byte 12: OP_HALT
+
+57 passed, 0 failed
 <end of output>
-Test time =   0.48 sec
+Test time =   0.56 sec
 ----------------------------------------------------------
 Test Passed.
-"CompilerPhase4" end time: Jun 13 21:50 IST
+"CompilerPhase4" end time: Jun 13 22:15 IST
 "CompilerPhase4" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -228,7 +243,7 @@ Test Passed.
 5/5 Test: VMPhase5
 Command: "/Users/mdadnankhalid/cvmpp/build/test_vm"
 Directory: /Users/mdadnankhalid/cvmpp/build
-"VMPhase5" start time: Jun 13 21:50 IST
+"VMPhase5" start time: Jun 13 22:15 IST
 Output:
 ----------------------------------------------------------
 Test A: integer print
@@ -266,13 +281,54 @@ Test G: unary negation
   PASS: exit code 0
   PASS: -5 + 8 = 3
 
-21 passed, 0 failed
+Test H: globals
+  PASS: exit code 0
+  PASS: prints 30
+
+Test I: undefined variable
+  PASS: exit code 70
+  PASS: stderr contains 'Runtime error'
+  PASS: stderr contains line number
+  PASS: stderr names the variable
+
+Test J: if-true executes then-branch
+  PASS: exit code 0
+  PASS: then-branch executes
+
+Test K: if-false skips then-branch
+  PASS: exit code 0
+  PASS: then-branch skipped
+
+Test L: if-else selects correct branch
+  PASS: if-true: exit code 0
+  PASS: if-true: then-branch selected
+  PASS: if-false: exit code 0
+  PASS: if-false: else-branch selected
+
+Test M: non-bool condition is runtime error
+  PASS: exit code 70
+  PASS: stderr contains 'Runtime error'
+  PASS: stderr mentions 'boolean'
+
+Test N: while executes body N times
+  PASS: exit code 0
+  PASS: prints 0 1 2
+
+Test O: while-false body never executes
+  PASS: exit code 0
+  PASS: body never executes
+
+Test P: nested block and if
+  PASS: exit code 0
+  PASS: nested block+if works
+
+44 passed, 0 failed
 <end of output>
 Test time =   0.47 sec
 ----------------------------------------------------------
 Test Passed.
-"VMPhase5" end time: Jun 13 21:50 IST
+"VMPhase5" end time: Jun 13 22:15 IST
 "VMPhase5" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-End testing: Jun 13 21:50 IST
+End testing: Jun 13 22:15 IST

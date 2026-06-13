@@ -154,6 +154,33 @@ int VM::execute(const Chunk& chunk) {
             break;
         }
 
+        case OpCode::OP_JUMP: {
+            uint16_t offset = static_cast<uint16_t>(
+                (static_cast<uint16_t>(chunk.code[ip]) << 8) | chunk.code[ip + 1]);
+            ip += 2 + offset;
+            break;
+        }
+
+        case OpCode::OP_JUMP_IF_FALSE: {
+            uint16_t offset = static_cast<uint16_t>(
+                (static_cast<uint16_t>(chunk.code[ip]) << 8) | chunk.code[ip + 1]);
+            ip += 2;
+            Value cond = peek();
+            if (cond.type != ValueType::BOOL)
+                return runtimeError(line, "condition must be a boolean");
+            if (!cond.b)
+                ip += offset;
+            break;
+        }
+
+        case OpCode::OP_LOOP: {
+            uint16_t offset = static_cast<uint16_t>(
+                (static_cast<uint16_t>(chunk.code[ip]) << 8) | chunk.code[ip + 1]);
+            ip += 2;
+            ip -= offset;
+            break;
+        }
+
         case OpCode::OP_HALT:
             return 0;
 

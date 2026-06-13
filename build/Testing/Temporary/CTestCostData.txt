@@ -1,6 +1,6 @@
-LexerPhase1 6 0.000470445
-ParserPhase2 5 0.000511142
-ChunkDisasmPhase3 3 0.000662319
-CompilerPhase4 2 0.240939
-VMPhase5 1 0.470456
+LexerPhase1 8 0.000443609
+ParserPhase2 7 0.000396875
+ChunkDisasmPhase3 5 0.000467192
+CompilerPhase4 4 0.13962
+VMPhase5 3 0.157314
 ---

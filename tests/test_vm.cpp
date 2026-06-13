@@ -143,6 +143,86 @@ static void testUndefinedVariable() {
     check(err.find("undefined variable") != std::string::npos,  "stderr names the variable");
 }
 
+// ── Test J: if-true executes then-branch ─────────────────────────────────────
+
+static void testIfTrue() {
+    std::cout << "\nTest J: if-true executes then-branch\n";
+    std::string out;
+    int rc = runVM("if (true) { print 1; }", &out, nullptr);
+    check(rc == 0,       "exit code 0");
+    check(out == "1\n",  "then-branch executes");
+}
+
+// ── Test K: if-false skips then-branch ───────────────────────────────────────
+
+static void testIfFalse() {
+    std::cout << "\nTest K: if-false skips then-branch\n";
+    std::string out;
+    int rc = runVM("if (false) { print 1; }", &out, nullptr);
+    check(rc == 0,   "exit code 0");
+    check(out == "", "then-branch skipped");
+}
+
+// ── Test L: if-else selects correct branch ───────────────────────────────────
+
+static void testIfElse() {
+    std::cout << "\nTest L: if-else selects correct branch\n";
+    std::string out;
+    int rc;
+
+    rc = runVM("if (true)  { print 1; } else { print 2; }", &out, nullptr);
+    check(rc == 0,       "if-true: exit code 0");
+    check(out == "1\n",  "if-true: then-branch selected");
+
+    rc = runVM("if (false) { print 1; } else { print 2; }", &out, nullptr);
+    check(rc == 0,       "if-false: exit code 0");
+    check(out == "2\n",  "if-false: else-branch selected");
+}
+
+// ── Test M: non-bool condition is a runtime error ─────────────────────────────
+
+static void testNonBoolCondition() {
+    std::cout << "\nTest M: non-bool condition is runtime error\n";
+    std::string err;
+    int rc = runVM("if (5) { print 1; }", nullptr, &err);
+    check(rc == 70,                                         "exit code 70");
+    check(err.find("Runtime error") != std::string::npos,  "stderr contains 'Runtime error'");
+    check(err.find("boolean") != std::string::npos,        "stderr mentions 'boolean'");
+}
+
+// ── Test N: while executes body N times ──────────────────────────────────────
+
+static void testWhileLoop() {
+    std::cout << "\nTest N: while executes body N times\n";
+    std::string out;
+    int rc = runVM("let i = 0; while (i < 3) { print i; i = i + 1; }", &out, nullptr);
+    check(rc == 0,              "exit code 0");
+    check(out == "0\n1\n2\n",  "prints 0 1 2");
+}
+
+// ── Test O: while-false body never executes ───────────────────────────────────
+
+static void testWhileFalseSkips() {
+    std::cout << "\nTest O: while-false body never executes\n";
+    std::string out;
+    int rc = runVM("while (false) { print 1; }", &out, nullptr);
+    check(rc == 0,   "exit code 0");
+    check(out == "", "body never executes");
+}
+
+// ── Test P: nested block and if ───────────────────────────────────────────────
+
+static void testNestedBlockIf() {
+    std::cout << "\nTest P: nested block and if\n";
+    std::string out;
+    int rc = runVM(
+        "let x = 1; "
+        "{ let y = 2; if (x < y) { print true; } }",
+        &out, nullptr);
+    check(rc == 0,           "exit code 0");
+    check(out == "true\n",   "nested block+if works");
+}
+
 int main() {
     testIntPrint();
     testArithmetic();
@@ -153,6 +233,13 @@ int main() {
     testUnaryNegate();
     testGlobals();
     testUndefinedVariable();
+    testIfTrue();
+    testIfFalse();
+    testIfElse();
+    testNonBoolCondition();
+    testWhileLoop();
+    testWhileFalseSkips();
+    testNestedBlockIf();
 
     std::cout << '\n' << g_passed << " passed, " << g_failed << " failed\n";
     return g_failed == 0 ? 0 : 1;
