@@ -1,10 +1,10 @@
-Start testing: Jun 13 21:42 IST
+Start testing: Jun 13 21:50 IST
 ----------------------------------------------------------
-1/4 Testing: LexerPhase1
-1/4 Test: LexerPhase1
+1/5 Testing: LexerPhase1
+1/5 Test: LexerPhase1
 Command: "/Users/mdadnankhalid/cvmpp/build/test_lexer"
 Directory: /Users/mdadnankhalid/cvmpp/build
-"LexerPhase1" start time: Jun 13 21:42 IST
+"LexerPhase1" start time: Jun 13 21:50 IST
 Output:
 ----------------------------------------------------------
 --- testBasicStream ---
@@ -72,15 +72,15 @@ All tests passed.
 Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
-"LexerPhase1" end time: Jun 13 21:42 IST
+"LexerPhase1" end time: Jun 13 21:50 IST
 "LexerPhase1" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-2/4 Testing: ParserPhase2
-2/4 Test: ParserPhase2
+2/5 Testing: ParserPhase2
+2/5 Test: ParserPhase2
 Command: "/Users/mdadnankhalid/cvmpp/build/test_parser"
 Directory: /Users/mdadnankhalid/cvmpp/build
-"ParserPhase2" start time: Jun 13 21:42 IST
+"ParserPhase2" start time: Jun 13 21:50 IST
 Output:
 ----------------------------------------------------------
 All parser tests passed.
@@ -88,15 +88,15 @@ All parser tests passed.
 Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
-"ParserPhase2" end time: Jun 13 21:42 IST
+"ParserPhase2" end time: Jun 13 21:50 IST
 "ParserPhase2" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-3/4 Testing: ChunkDisasmPhase3
-3/4 Test: ChunkDisasmPhase3
+3/5 Testing: ChunkDisasmPhase3
+3/5 Test: ChunkDisasmPhase3
 Command: "/Users/mdadnankhalid/cvmpp/build/test_disassembler"
 Directory: /Users/mdadnankhalid/cvmpp/build
-"ChunkDisasmPhase3" start time: Jun 13 21:42 IST
+"ChunkDisasmPhase3" start time: Jun 13 21:50 IST
 Output:
 ----------------------------------------------------------
 Test A: Chunk API
@@ -146,15 +146,15 @@ Test D: Jump instruction disassembly
 Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
-"ChunkDisasmPhase3" end time: Jun 13 21:42 IST
+"ChunkDisasmPhase3" end time: Jun 13 21:50 IST
 "ChunkDisasmPhase3" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-4/4 Testing: CompilerPhase4
-4/4 Test: CompilerPhase4
+4/5 Testing: CompilerPhase4
+4/5 Test: CompilerPhase4
 Command: "/Users/mdadnankhalid/cvmpp/build/test_compiler"
 Directory: /Users/mdadnankhalid/cvmpp/build
-"CompilerPhase4" start time: Jun 13 21:42 IST
+"CompilerPhase4" start time: Jun 13 21:50 IST
 Output:
 ----------------------------------------------------------
 Test A: integer literal
@@ -217,11 +217,62 @@ Test G: multiple expression statements
 
 44 passed, 0 failed
 <end of output>
-Test time =   0.60 sec
+Test time =   0.48 sec
 ----------------------------------------------------------
 Test Passed.
-"CompilerPhase4" end time: Jun 13 21:42 IST
+"CompilerPhase4" end time: Jun 13 21:50 IST
 "CompilerPhase4" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-End testing: Jun 13 21:42 IST
+5/5 Testing: VMPhase5
+5/5 Test: VMPhase5
+Command: "/Users/mdadnankhalid/cvmpp/build/test_vm"
+Directory: /Users/mdadnankhalid/cvmpp/build
+"VMPhase5" start time: Jun 13 21:50 IST
+Output:
+----------------------------------------------------------
+Test A: integer print
+  PASS: exit code 0
+  PASS: prints 42
+
+Test B: arithmetic
+  PASS: exit code 0
+  PASS: 1 + 2*3 = 7
+
+Test C: boolean print
+  PASS: exit code 0 for true
+  PASS: prints 'true'
+  PASS: exit code 0 for false
+  PASS: prints 'false'
+
+Test D: type error
+  PASS: exit code 70
+  PASS: stderr contains 'Runtime error'
+  PASS: stderr contains line number
+
+Test E: division by zero
+  PASS: exit code 70
+  PASS: stderr contains 'division by zero'
+
+Test F: comparisons
+  PASS: exit code 0
+  PASS: 3 < 5 is true
+  PASS: exit code 0
+  PASS: 4 == 4 is true
+  PASS: exit code 0
+  PASS: 5 < 3 is false
+
+Test G: unary negation
+  PASS: exit code 0
+  PASS: -5 + 8 = 3
+
+21 passed, 0 failed
+<end of output>
+Test time =   0.47 sec
+----------------------------------------------------------
+Test Passed.
+"VMPhase5" end time: Jun 13 21:50 IST
+"VMPhase5" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Jun 13 21:50 IST

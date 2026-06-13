@@ -76,7 +76,8 @@ void Compiler::visitLetStmt(LetStmt& s) {
 }
 
 void Compiler::visitPrintStmt(PrintStmt& s) {
-    error(s.line, "print statement not yet implemented (phase 5)");
+    compileExpr(*s.expression);
+    chunk_.writeOpCode(OpCode::OP_PRINT, s.line);
 }
 
 void Compiler::visitIfStmt(IfStmt& s) {

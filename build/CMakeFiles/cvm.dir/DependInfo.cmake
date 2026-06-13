@@ -13,6 +13,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/Users/mdadnankhalid/cvmpp/src/lexer.cpp" "CMakeFiles/cvm.dir/src/lexer.cpp.o" "gcc" "CMakeFiles/cvm.dir/src/lexer.cpp.o.d"
   "/Users/mdadnankhalid/cvmpp/src/main.cpp" "CMakeFiles/cvm.dir/src/main.cpp.o" "gcc" "CMakeFiles/cvm.dir/src/main.cpp.o.d"
   "/Users/mdadnankhalid/cvmpp/src/parser.cpp" "CMakeFiles/cvm.dir/src/parser.cpp.o" "gcc" "CMakeFiles/cvm.dir/src/parser.cpp.o.d"
+  "/Users/mdadnankhalid/cvmpp/src/vm.cpp" "CMakeFiles/cvm.dir/src/vm.cpp.o" "gcc" "CMakeFiles/cvm.dir/src/vm.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

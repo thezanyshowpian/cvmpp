@@ -68,6 +68,7 @@ all: CMakeFiles/test_lexer.dir/all
 all: CMakeFiles/test_parser.dir/all
 all: CMakeFiles/test_disassembler.dir/all
 all: CMakeFiles/test_compiler.dir/all
+all: CMakeFiles/test_vm.dir/all
 .PHONY : all
 
 # The main recursive "codegen" target.
@@ -76,6 +77,7 @@ codegen: CMakeFiles/test_lexer.dir/codegen
 codegen: CMakeFiles/test_parser.dir/codegen
 codegen: CMakeFiles/test_disassembler.dir/codegen
 codegen: CMakeFiles/test_compiler.dir/codegen
+codegen: CMakeFiles/test_vm.dir/codegen
 .PHONY : codegen
 
 # The main recursive "preinstall" target.
@@ -88,6 +90,7 @@ clean: CMakeFiles/test_lexer.dir/clean
 clean: CMakeFiles/test_parser.dir/clean
 clean: CMakeFiles/test_disassembler.dir/clean
 clean: CMakeFiles/test_compiler.dir/clean
+clean: CMakeFiles/test_vm.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -97,12 +100,12 @@ clean: CMakeFiles/test_compiler.dir/clean
 CMakeFiles/cvm.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cvm.dir/build.make CMakeFiles/cvm.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cvm.dir/build.make CMakeFiles/cvm.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/mdadnankhalid/cvmpp/build/CMakeFiles --progress-num=1,2,3,4,5,6 "Built target cvm"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/mdadnankhalid/cvmpp/build/CMakeFiles --progress-num=1,2,3,4,5,6,7 "Built target cvm"
 .PHONY : CMakeFiles/cvm.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/cvm.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/mdadnankhalid/cvmpp/build/CMakeFiles 6
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/mdadnankhalid/cvmpp/build/CMakeFiles 7
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/cvm.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/mdadnankhalid/cvmpp/build/CMakeFiles 0
 .PHONY : CMakeFiles/cvm.dir/rule
@@ -114,7 +117,7 @@ cvm: CMakeFiles/cvm.dir/rule
 # codegen rule for target.
 CMakeFiles/cvm.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cvm.dir/build.make CMakeFiles/cvm.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/mdadnankhalid/cvmpp/build/CMakeFiles --progress-num=1,2,3,4,5,6 "Finished codegen for target cvm"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/mdadnankhalid/cvmpp/build/CMakeFiles --progress-num=1,2,3,4,5,6,7 "Finished codegen for target cvm"
 .PHONY : CMakeFiles/cvm.dir/codegen
 
 # clean rule for target.
@@ -129,7 +132,7 @@ CMakeFiles/cvm.dir/clean:
 CMakeFiles/test_lexer.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_lexer.dir/build.make CMakeFiles/test_lexer.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_lexer.dir/build.make CMakeFiles/test_lexer.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/mdadnankhalid/cvmpp/build/CMakeFiles --progress-num=16,17,18 "Built target test_lexer"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/mdadnankhalid/cvmpp/build/CMakeFiles --progress-num=17,18,19 "Built target test_lexer"
 .PHONY : CMakeFiles/test_lexer.dir/all
 
 # Build rule for subdir invocation for target.
@@ -146,7 +149,7 @@ test_lexer: CMakeFiles/test_lexer.dir/rule
 # codegen rule for target.
 CMakeFiles/test_lexer.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_lexer.dir/build.make CMakeFiles/test_lexer.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/mdadnankhalid/cvmpp/build/CMakeFiles --progress-num=16,17,18 "Finished codegen for target test_lexer"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/mdadnankhalid/cvmpp/build/CMakeFiles --progress-num=17,18,19 "Finished codegen for target test_lexer"
 .PHONY : CMakeFiles/test_lexer.dir/codegen
 
 # clean rule for target.
@@ -161,7 +164,7 @@ CMakeFiles/test_lexer.dir/clean:
 CMakeFiles/test_parser.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_parser.dir/build.make CMakeFiles/test_parser.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_parser.dir/build.make CMakeFiles/test_parser.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/mdadnankhalid/cvmpp/build/CMakeFiles --progress-num=19,20,21,22,23 "Built target test_parser"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/mdadnankhalid/cvmpp/build/CMakeFiles --progress-num=20,21,22,23,24 "Built target test_parser"
 .PHONY : CMakeFiles/test_parser.dir/all
 
 # Build rule for subdir invocation for target.
@@ -178,7 +181,7 @@ test_parser: CMakeFiles/test_parser.dir/rule
 # codegen rule for target.
 CMakeFiles/test_parser.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_parser.dir/build.make CMakeFiles/test_parser.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/mdadnankhalid/cvmpp/build/CMakeFiles --progress-num=19,20,21,22,23 "Finished codegen for target test_parser"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/mdadnankhalid/cvmpp/build/CMakeFiles --progress-num=20,21,22,23,24 "Finished codegen for target test_parser"
 .PHONY : CMakeFiles/test_parser.dir/codegen
 
 # clean rule for target.
@@ -193,7 +196,7 @@ CMakeFiles/test_parser.dir/clean:
 CMakeFiles/test_disassembler.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disassembler.dir/build.make CMakeFiles/test_disassembler.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disassembler.dir/build.make CMakeFiles/test_disassembler.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/mdadnankhalid/cvmpp/build/CMakeFiles --progress-num=13,14,15 "Built target test_disassembler"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/mdadnankhalid/cvmpp/build/CMakeFiles --progress-num=14,15,16 "Built target test_disassembler"
 .PHONY : CMakeFiles/test_disassembler.dir/all
 
 # Build rule for subdir invocation for target.
@@ -210,7 +213,7 @@ test_disassembler: CMakeFiles/test_disassembler.dir/rule
 # codegen rule for target.
 CMakeFiles/test_disassembler.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_disassembler.dir/build.make CMakeFiles/test_disassembler.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/mdadnankhalid/cvmpp/build/CMakeFiles --progress-num=13,14,15 "Finished codegen for target test_disassembler"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/mdadnankhalid/cvmpp/build/CMakeFiles --progress-num=14,15,16 "Finished codegen for target test_disassembler"
 .PHONY : CMakeFiles/test_disassembler.dir/codegen
 
 # clean rule for target.
@@ -225,7 +228,7 @@ CMakeFiles/test_disassembler.dir/clean:
 CMakeFiles/test_compiler.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_compiler.dir/build.make CMakeFiles/test_compiler.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_compiler.dir/build.make CMakeFiles/test_compiler.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/mdadnankhalid/cvmpp/build/CMakeFiles --progress-num=7,8,9,10,11,12 "Built target test_compiler"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/mdadnankhalid/cvmpp/build/CMakeFiles --progress-num=8,9,10,11,12,13 "Built target test_compiler"
 .PHONY : CMakeFiles/test_compiler.dir/all
 
 # Build rule for subdir invocation for target.
@@ -242,13 +245,45 @@ test_compiler: CMakeFiles/test_compiler.dir/rule
 # codegen rule for target.
 CMakeFiles/test_compiler.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_compiler.dir/build.make CMakeFiles/test_compiler.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/mdadnankhalid/cvmpp/build/CMakeFiles --progress-num=7,8,9,10,11,12 "Finished codegen for target test_compiler"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/mdadnankhalid/cvmpp/build/CMakeFiles --progress-num=8,9,10,11,12,13 "Finished codegen for target test_compiler"
 .PHONY : CMakeFiles/test_compiler.dir/codegen
 
 # clean rule for target.
 CMakeFiles/test_compiler.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_compiler.dir/build.make CMakeFiles/test_compiler.dir/clean
 .PHONY : CMakeFiles/test_compiler.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/test_vm.dir
+
+# All Build rule for target.
+CMakeFiles/test_vm.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_vm.dir/build.make CMakeFiles/test_vm.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_vm.dir/build.make CMakeFiles/test_vm.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/mdadnankhalid/cvmpp/build/CMakeFiles --progress-num=25,26,27,28,29,30,31 "Built target test_vm"
+.PHONY : CMakeFiles/test_vm.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/test_vm.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/mdadnankhalid/cvmpp/build/CMakeFiles 7
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/test_vm.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/mdadnankhalid/cvmpp/build/CMakeFiles 0
+.PHONY : CMakeFiles/test_vm.dir/rule
+
+# Convenience name for target.
+test_vm: CMakeFiles/test_vm.dir/rule
+.PHONY : test_vm
+
+# codegen rule for target.
+CMakeFiles/test_vm.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_vm.dir/build.make CMakeFiles/test_vm.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/mdadnankhalid/cvmpp/build/CMakeFiles --progress-num=25,26,27,28,29,30,31 "Finished codegen for target test_vm"
+.PHONY : CMakeFiles/test_vm.dir/codegen
+
+# clean rule for target.
+CMakeFiles/test_vm.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_vm.dir/build.make CMakeFiles/test_vm.dir/clean
+.PHONY : CMakeFiles/test_vm.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

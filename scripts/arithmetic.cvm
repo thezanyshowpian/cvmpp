@@ -1,0 +1,6 @@
+print 1 + 2 * 3;
+print (1 + 2) * 3;
+print 10 / 3;
+print -5 + 8;
+print 3 < 5;
+print 4 == 4;

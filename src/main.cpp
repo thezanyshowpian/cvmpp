@@ -6,6 +6,7 @@
 #include "cvm/disassembler.hpp"
 #include "cvm/lexer.hpp"
 #include "cvm/parser.hpp"
+#include "cvm/vm.hpp"
 
 static int runFile(const std::string& path, bool printAst, bool printBytecode) {
     std::ifstream file(path);
@@ -32,8 +33,8 @@ static int runFile(const std::string& path, bool printAst, bool printBytecode) {
 
     if (printBytecode) BytecodeDisassembler(chunk, path).disassemble();
 
-    // VM: Phase 5
-    return 0;
+    VM vm;
+    return vm.execute(chunk);
 }
 
 int main(int argc, char* argv[]) {
