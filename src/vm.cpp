@@ -18,9 +18,9 @@ Value VM::pop() {
 
 Value VM::peek() const { return stack_.back(); }
 
-int VM::execute(const Chunk& chunk) {
+int VM::execute(const Chunk& chunk, bool clearState) {
     stack_.clear();
-    globals_.clear();
+    if (clearState) globals_.clear();
     size_t ip = 0;
 
     for (;;) {

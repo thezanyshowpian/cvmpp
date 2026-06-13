@@ -1,10 +1,10 @@
-Start testing: Jun 13 22:15 IST
+Start testing: Jun 13 22:36 IST
 ----------------------------------------------------------
-1/5 Testing: LexerPhase1
-1/5 Test: LexerPhase1
+1/6 Testing: LexerPhase1
+1/6 Test: LexerPhase1
 Command: "/Users/mdadnankhalid/cvmpp/build/test_lexer"
 Directory: /Users/mdadnankhalid/cvmpp/build
-"LexerPhase1" start time: Jun 13 22:15 IST
+"LexerPhase1" start time: Jun 13 22:36 IST
 Output:
 ----------------------------------------------------------
 --- testBasicStream ---
@@ -72,15 +72,15 @@ All tests passed.
 Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
-"LexerPhase1" end time: Jun 13 22:15 IST
+"LexerPhase1" end time: Jun 13 22:36 IST
 "LexerPhase1" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-2/5 Testing: ParserPhase2
-2/5 Test: ParserPhase2
+2/6 Testing: ParserPhase2
+2/6 Test: ParserPhase2
 Command: "/Users/mdadnankhalid/cvmpp/build/test_parser"
 Directory: /Users/mdadnankhalid/cvmpp/build
-"ParserPhase2" start time: Jun 13 22:15 IST
+"ParserPhase2" start time: Jun 13 22:36 IST
 Output:
 ----------------------------------------------------------
 All parser tests passed.
@@ -88,15 +88,15 @@ All parser tests passed.
 Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
-"ParserPhase2" end time: Jun 13 22:15 IST
+"ParserPhase2" end time: Jun 13 22:36 IST
 "ParserPhase2" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-3/5 Testing: ChunkDisasmPhase3
-3/5 Test: ChunkDisasmPhase3
+3/6 Testing: ChunkDisasmPhase3
+3/6 Test: ChunkDisasmPhase3
 Command: "/Users/mdadnankhalid/cvmpp/build/test_disassembler"
 Directory: /Users/mdadnankhalid/cvmpp/build
-"ChunkDisasmPhase3" start time: Jun 13 22:15 IST
+"ChunkDisasmPhase3" start time: Jun 13 22:36 IST
 Output:
 ----------------------------------------------------------
 Test A: Chunk API
@@ -146,15 +146,15 @@ Test D: Jump instruction disassembly
 Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
-"ChunkDisasmPhase3" end time: Jun 13 22:15 IST
+"ChunkDisasmPhase3" end time: Jun 13 22:36 IST
 "ChunkDisasmPhase3" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-4/5 Testing: CompilerPhase4
-4/5 Test: CompilerPhase4
+4/6 Testing: CompilerPhase4
+4/6 Test: CompilerPhase4
 Command: "/Users/mdadnankhalid/cvmpp/build/test_compiler"
 Directory: /Users/mdadnankhalid/cvmpp/build
-"CompilerPhase4" start time: Jun 13 22:15 IST
+"CompilerPhase4" start time: Jun 13 22:36 IST
 Output:
 ----------------------------------------------------------
 Test A: integer literal
@@ -232,18 +232,18 @@ Test H: if without else — bytecode structure
 
 57 passed, 0 failed
 <end of output>
-Test time =   0.56 sec
+Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
-"CompilerPhase4" end time: Jun 13 22:15 IST
+"CompilerPhase4" end time: Jun 13 22:36 IST
 "CompilerPhase4" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-5/5 Testing: VMPhase5
-5/5 Test: VMPhase5
+5/6 Testing: VMPhase5
+5/6 Test: VMPhase5
 Command: "/Users/mdadnankhalid/cvmpp/build/test_vm"
 Directory: /Users/mdadnankhalid/cvmpp/build
-"VMPhase5" start time: Jun 13 22:15 IST
+"VMPhase5" start time: Jun 13 22:36 IST
 Output:
 ----------------------------------------------------------
 Test A: integer print
@@ -324,11 +324,34 @@ Test P: nested block and if
 
 44 passed, 0 failed
 <end of output>
-Test time =   0.47 sec
+Test time =   0.56 sec
 ----------------------------------------------------------
 Test Passed.
-"VMPhase5" end time: Jun 13 22:15 IST
+"VMPhase5" end time: Jun 13 22:36 IST
 "VMPhase5" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-End testing: Jun 13 22:15 IST
+6/6 Testing: CLIPhase8
+6/6 Test: CLIPhase8
+Command: "/Users/mdadnankhalid/cvmpp/tests/test_cli.sh" "/Users/mdadnankhalid/cvmpp/build/cvm" "/Users/mdadnankhalid/cvmpp/scripts"
+Directory: /Users/mdadnankhalid/cvmpp/build
+"CLIPhase8" start time: Jun 13 22:36 IST
+Output:
+----------------------------------------------------------
+  PASS: success -> exit 0
+  PASS: syntax error -> exit 65
+  PASS: runtime error -> exit 70
+  PASS: --ast output has AST tokens
+  PASS: --bytecode output has opcode tokens
+  PASS: --debug output has AST tokens
+  PASS: --debug output has opcode tokens
+7 passed, 0 failed
+<end of output>
+Test time =   1.10 sec
+----------------------------------------------------------
+Test Passed.
+"CLIPhase8" end time: Jun 13 22:36 IST
+"CLIPhase8" time elapsed: 00:00:01
+----------------------------------------------------------
+
+End testing: Jun 13 22:36 IST

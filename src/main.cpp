@@ -37,10 +37,32 @@ static int runFile(const std::string& path, bool printAst, bool printBytecode) {
     return vm.execute(chunk);
 }
 
+static void runREPL() {
+    std::cout << "CVM++ 0.1  --  type a statement and press Enter. Ctrl-D to quit.\n";
+    VM vm;
+    std::string line;
+    for (;;) {
+        std::cout << "> " << std::flush;
+        if (!std::getline(std::cin, line)) { std::cout << '\n'; break; }
+        if (line.empty()) continue;
+
+        Lexer lexer(line);
+        auto tokens = lexer.tokenize();
+        Parser parser(std::move(tokens));
+        auto stmts = parser.parse();
+        if (parser.hadError()) continue;
+
+        Compiler compiler;
+        Chunk chunk = compiler.compile(stmts);
+        if (compiler.hadError()) continue;
+
+        vm.execute(chunk, /*clearState=*/false);
+    }
+}
+
 int main(int argc, char* argv[]) {
     if (argc == 1) {
-        std::cout << "CVM++ 0.1  --  a tiny statically-typed scripting language\n";
-        std::cout << "Usage: cvm <script.cvm> [--ast] [--bytecode] [--debug]\n";
+        runREPL();
         return 0;
     }
 

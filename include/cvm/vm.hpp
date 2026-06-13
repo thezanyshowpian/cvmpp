@@ -7,7 +7,7 @@
 
 class VM {
 public:
-    int execute(const Chunk& chunk);
+    int execute(const Chunk& chunk, bool clearState = true);
 private:
     std::vector<Value> stack_;
     std::unordered_map<std::string, Value> globals_;

@@ -58,3 +58,10 @@ add_executable(test_vm
     src/vm.cpp
 )
 add_test(NAME VMPhase5 COMMAND test_vm)
+
+add_test(
+    NAME CLIPhase8
+    COMMAND ${CMAKE_CURRENT_SOURCE_DIR}/tests/test_cli.sh
+            $<TARGET_FILE:cvm>
+            ${CMAKE_CURRENT_SOURCE_DIR}/scripts
+)
