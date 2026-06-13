@@ -31,3 +31,9 @@ add_executable(test_parser
     src/disassembler.cpp
 )
 add_test(NAME ParserPhase2 COMMAND test_parser)
+
+add_executable(test_disassembler
+    tests/test_disassembler.cpp
+    src/disassembler.cpp
+)
+add_test(NAME ChunkDisasmPhase3 COMMAND test_disassembler)
