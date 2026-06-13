@@ -152,6 +152,46 @@ test_lexer/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_lexer.dir/build.make CMakeFiles/test_lexer.dir/build
 .PHONY : test_lexer/fast
 
+#=============================================================================
+# Target rules for targets named test_parser
+
+# Build rule for target.
+test_parser: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_parser
+.PHONY : test_parser
+
+# fast build rule for target.
+test_parser/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_parser.dir/build.make CMakeFiles/test_parser.dir/build
+.PHONY : test_parser/fast
+
+src/disassembler.o: src/disassembler.cpp.o
+.PHONY : src/disassembler.o
+
+# target to build an object file
+src/disassembler.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cvm.dir/build.make CMakeFiles/cvm.dir/src/disassembler.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_parser.dir/build.make CMakeFiles/test_parser.dir/src/disassembler.cpp.o
+.PHONY : src/disassembler.cpp.o
+
+src/disassembler.i: src/disassembler.cpp.i
+.PHONY : src/disassembler.i
+
+# target to preprocess a source file
+src/disassembler.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cvm.dir/build.make CMakeFiles/cvm.dir/src/disassembler.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_parser.dir/build.make CMakeFiles/test_parser.dir/src/disassembler.cpp.i
+.PHONY : src/disassembler.cpp.i
+
+src/disassembler.s: src/disassembler.cpp.s
+.PHONY : src/disassembler.s
+
+# target to generate assembly for a file
+src/disassembler.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cvm.dir/build.make CMakeFiles/cvm.dir/src/disassembler.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_parser.dir/build.make CMakeFiles/test_parser.dir/src/disassembler.cpp.s
+.PHONY : src/disassembler.cpp.s
+
 src/lexer.o: src/lexer.cpp.o
 .PHONY : src/lexer.o
 
@@ -159,6 +199,7 @@ src/lexer.o: src/lexer.cpp.o
 src/lexer.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cvm.dir/build.make CMakeFiles/cvm.dir/src/lexer.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_lexer.dir/build.make CMakeFiles/test_lexer.dir/src/lexer.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_parser.dir/build.make CMakeFiles/test_parser.dir/src/lexer.cpp.o
 .PHONY : src/lexer.cpp.o
 
 src/lexer.i: src/lexer.cpp.i
@@ -168,6 +209,7 @@ src/lexer.i: src/lexer.cpp.i
 src/lexer.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cvm.dir/build.make CMakeFiles/cvm.dir/src/lexer.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_lexer.dir/build.make CMakeFiles/test_lexer.dir/src/lexer.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_parser.dir/build.make CMakeFiles/test_parser.dir/src/lexer.cpp.i
 .PHONY : src/lexer.cpp.i
 
 src/lexer.s: src/lexer.cpp.s
@@ -177,6 +219,7 @@ src/lexer.s: src/lexer.cpp.s
 src/lexer.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cvm.dir/build.make CMakeFiles/cvm.dir/src/lexer.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_lexer.dir/build.make CMakeFiles/test_lexer.dir/src/lexer.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_parser.dir/build.make CMakeFiles/test_parser.dir/src/lexer.cpp.s
 .PHONY : src/lexer.cpp.s
 
 src/main.o: src/main.cpp.o
@@ -203,6 +246,33 @@ src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cvm.dir/build.make CMakeFiles/cvm.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
+src/parser.o: src/parser.cpp.o
+.PHONY : src/parser.o
+
+# target to build an object file
+src/parser.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cvm.dir/build.make CMakeFiles/cvm.dir/src/parser.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_parser.dir/build.make CMakeFiles/test_parser.dir/src/parser.cpp.o
+.PHONY : src/parser.cpp.o
+
+src/parser.i: src/parser.cpp.i
+.PHONY : src/parser.i
+
+# target to preprocess a source file
+src/parser.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cvm.dir/build.make CMakeFiles/cvm.dir/src/parser.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_parser.dir/build.make CMakeFiles/test_parser.dir/src/parser.cpp.i
+.PHONY : src/parser.cpp.i
+
+src/parser.s: src/parser.cpp.s
+.PHONY : src/parser.s
+
+# target to generate assembly for a file
+src/parser.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cvm.dir/build.make CMakeFiles/cvm.dir/src/parser.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_parser.dir/build.make CMakeFiles/test_parser.dir/src/parser.cpp.s
+.PHONY : src/parser.cpp.s
+
 tests/test_lexer.o: tests/test_lexer.cpp.o
 .PHONY : tests/test_lexer.o
 
@@ -227,6 +297,30 @@ tests/test_lexer.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_lexer.dir/build.make CMakeFiles/test_lexer.dir/tests/test_lexer.cpp.s
 .PHONY : tests/test_lexer.cpp.s
 
+tests/test_parser.o: tests/test_parser.cpp.o
+.PHONY : tests/test_parser.o
+
+# target to build an object file
+tests/test_parser.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_parser.dir/build.make CMakeFiles/test_parser.dir/tests/test_parser.cpp.o
+.PHONY : tests/test_parser.cpp.o
+
+tests/test_parser.i: tests/test_parser.cpp.i
+.PHONY : tests/test_parser.i
+
+# target to preprocess a source file
+tests/test_parser.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_parser.dir/build.make CMakeFiles/test_parser.dir/tests/test_parser.cpp.i
+.PHONY : tests/test_parser.cpp.i
+
+tests/test_parser.s: tests/test_parser.cpp.s
+.PHONY : tests/test_parser.s
+
+# target to generate assembly for a file
+tests/test_parser.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_parser.dir/build.make CMakeFiles/test_parser.dir/tests/test_parser.cpp.s
+.PHONY : tests/test_parser.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -238,15 +332,25 @@ help:
 	@echo "... test"
 	@echo "... cvm"
 	@echo "... test_lexer"
+	@echo "... test_parser"
+	@echo "... src/disassembler.o"
+	@echo "... src/disassembler.i"
+	@echo "... src/disassembler.s"
 	@echo "... src/lexer.o"
 	@echo "... src/lexer.i"
 	@echo "... src/lexer.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/parser.o"
+	@echo "... src/parser.i"
+	@echo "... src/parser.s"
 	@echo "... tests/test_lexer.o"
 	@echo "... tests/test_lexer.i"
 	@echo "... tests/test_lexer.s"
+	@echo "... tests/test_parser.o"
+	@echo "... tests/test_parser.i"
+	@echo "... tests/test_parser.s"
 .PHONY : help
 
 

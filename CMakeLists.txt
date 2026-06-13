@@ -9,8 +9,25 @@ add_compile_options(-Wall -Wextra -Wpedantic)
 
 include_directories(include)
 
-add_executable(cvm src/main.cpp src/lexer.cpp)
+add_executable(cvm
+    src/main.cpp
+    src/lexer.cpp
+    src/parser.cpp
+    src/disassembler.cpp
+)
 
 enable_testing()
-add_executable(test_lexer tests/test_lexer.cpp src/lexer.cpp)
+
+add_executable(test_lexer
+    tests/test_lexer.cpp
+    src/lexer.cpp
+)
 add_test(NAME LexerPhase1 COMMAND test_lexer)
+
+add_executable(test_parser
+    tests/test_parser.cpp
+    src/lexer.cpp
+    src/parser.cpp
+    src/disassembler.cpp
+)
+add_test(NAME ParserPhase2 COMMAND test_parser)

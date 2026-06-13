@@ -1,10 +1,10 @@
-Start testing: Jun 13 20:53 IST
+Start testing: Jun 13 21:11 IST
 ----------------------------------------------------------
-1/1 Testing: LexerPhase1
-1/1 Test: LexerPhase1
+1/2 Testing: LexerPhase1
+1/2 Test: LexerPhase1
 Command: "/Users/mdadnankhalid/cvmpp/build/test_lexer"
 Directory: /Users/mdadnankhalid/cvmpp/build
-"LexerPhase1" start time: Jun 13 20:53 IST
+"LexerPhase1" start time: Jun 13 21:11 IST
 Output:
 ----------------------------------------------------------
 --- testBasicStream ---
@@ -69,11 +69,27 @@ Output:
 
 All tests passed.
 <end of output>
-Test time =   0.48 sec
+Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
-"LexerPhase1" end time: Jun 13 20:53 IST
+"LexerPhase1" end time: Jun 13 21:11 IST
 "LexerPhase1" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-End testing: Jun 13 20:53 IST
+2/2 Testing: ParserPhase2
+2/2 Test: ParserPhase2
+Command: "/Users/mdadnankhalid/cvmpp/build/test_parser"
+Directory: /Users/mdadnankhalid/cvmpp/build
+"ParserPhase2" start time: Jun 13 21:11 IST
+Output:
+----------------------------------------------------------
+All parser tests passed.
+<end of output>
+Test time =   0.60 sec
+----------------------------------------------------------
+Test Passed.
+"ParserPhase2" end time: Jun 13 21:11 IST
+"ParserPhase2" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Jun 13 21:11 IST

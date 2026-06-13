@@ -1,8 +1,12 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/cvm.dir/src/disassembler.cpp.o"
+  "CMakeFiles/cvm.dir/src/disassembler.cpp.o.d"
   "CMakeFiles/cvm.dir/src/lexer.cpp.o"
   "CMakeFiles/cvm.dir/src/lexer.cpp.o.d"
   "CMakeFiles/cvm.dir/src/main.cpp.o"
   "CMakeFiles/cvm.dir/src/main.cpp.o.d"
+  "CMakeFiles/cvm.dir/src/parser.cpp.o"
+  "CMakeFiles/cvm.dir/src/parser.cpp.o.d"
   "cvm"
   "cvm.pdb"
 )
