@@ -811,9 +811,12 @@ CMakeFiles/cvm.dir/src/main.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__filesystem/u8path.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/iostream \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/sstream \
-  /Users/mdadnankhalid/cvmpp/include/cvm/disassembler.hpp \
+  /Users/mdadnankhalid/cvmpp/include/cvm/compiler.hpp \
   /Users/mdadnankhalid/cvmpp/include/cvm/ast.hpp \
   /Users/mdadnankhalid/cvmpp/include/cvm/token.hpp \
   /Users/mdadnankhalid/cvmpp/include/cvm/value.hpp \
+  /Users/mdadnankhalid/cvmpp/include/cvm/chunk.hpp \
+  /Users/mdadnankhalid/cvmpp/include/cvm/opcode.hpp \
+  /Users/mdadnankhalid/cvmpp/include/cvm/disassembler.hpp \
   /Users/mdadnankhalid/cvmpp/include/cvm/lexer.hpp \
   /Users/mdadnankhalid/cvmpp/include/cvm/parser.hpp

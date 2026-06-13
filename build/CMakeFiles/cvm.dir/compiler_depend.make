@@ -606,6 +606,7 @@ CMakeFiles/cvm.dir/src/disassembler.cpp.o: /Users/mdadnankhalid/cvmpp/src/disass
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/format \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/functional \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/initializer_list \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/iomanip \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/ios \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/iosfwd \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/iostream \
@@ -793,7 +794,9 @@ CMakeFiles/cvm.dir/src/disassembler.cpp.o: /Users/mdadnankhalid/cvmpp/src/disass
   /Library/Developer/CommandLineTools/usr/lib/clang/17/include/stddef.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/17/include/stdint.h \
   /Users/mdadnankhalid/cvmpp/include/cvm/ast.hpp \
+  /Users/mdadnankhalid/cvmpp/include/cvm/chunk.hpp \
   /Users/mdadnankhalid/cvmpp/include/cvm/disassembler.hpp \
+  /Users/mdadnankhalid/cvmpp/include/cvm/opcode.hpp \
   /Users/mdadnankhalid/cvmpp/include/cvm/token.hpp \
   /Users/mdadnankhalid/cvmpp/include/cvm/value.hpp
 
@@ -2404,8 +2407,10 @@ CMakeFiles/cvm.dir/src/main.cpp.o: /Users/mdadnankhalid/cvmpp/src/main.cpp \
   /Library/Developer/CommandLineTools/usr/lib/clang/17/include/stddef.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/17/include/stdint.h \
   /Users/mdadnankhalid/cvmpp/include/cvm/ast.hpp \
+  /Users/mdadnankhalid/cvmpp/include/cvm/chunk.hpp \
   /Users/mdadnankhalid/cvmpp/include/cvm/disassembler.hpp \
   /Users/mdadnankhalid/cvmpp/include/cvm/lexer.hpp \
+  /Users/mdadnankhalid/cvmpp/include/cvm/opcode.hpp \
   /Users/mdadnankhalid/cvmpp/include/cvm/parser.hpp \
   /Users/mdadnankhalid/cvmpp/include/cvm/token.hpp \
   /Users/mdadnankhalid/cvmpp/include/cvm/value.hpp
@@ -3233,9 +3238,9 @@ CMakeFiles/cvm.dir/src/parser.cpp.o: /Users/mdadnankhalid/cvmpp/src/parser.cpp \
 
 /Users/mdadnankhalid/cvmpp/src/main.cpp:
 
-/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__algorithm/inplace_merge.h:
+/Users/mdadnankhalid/cvmpp/include/cvm/lexer.hpp:
 
-/Users/mdadnankhalid/cvmpp/include/cvm/value.hpp:
+/Users/mdadnankhalid/cvmpp/src/lexer.cpp:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/bitset:
 
@@ -3345,9 +3350,9 @@ CMakeFiles/cvm.dir/src/parser.cpp.o: /Users/mdadnankhalid/cvmpp/src/parser.cpp \
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/_types/_int32_t.h:
 
-/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/iomanip:
-
 /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__algorithm/copy.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/iomanip:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/_types/_ino_t.h:
 
@@ -3576,8 +3581,6 @@ CMakeFiles/cvm.dir/src/parser.cpp.o: /Users/mdadnankhalid/cvmpp/src/parser.cpp \
 /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__utility/declval.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__utility/convert_to_integral.h:
-
-/Users/mdadnankhalid/cvmpp/src/lexer.cpp:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__utility/as_const.h:
 
@@ -4441,6 +4444,8 @@ CMakeFiles/cvm.dir/src/parser.cpp.o: /Users/mdadnankhalid/cvmpp/src/parser.cpp \
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__mbstate_t.h:
 
+/Users/mdadnankhalid/cvmpp/include/cvm/opcode.hpp:
+
 /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__algorithm/includes.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/_pthread/_pthread_condattr_t.h:
@@ -4492,6 +4497,8 @@ CMakeFiles/cvm.dir/src/parser.cpp.o: /Users/mdadnankhalid/cvmpp/src/parser.cpp \
 /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__assert:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__compare/three_way_comparable.h:
+
+/Users/mdadnankhalid/cvmpp/include/cvm/chunk.hpp:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__algorithm/set_symmetric_difference.h:
 
@@ -4693,6 +4700,10 @@ CMakeFiles/cvm.dir/src/parser.cpp.o: /Users/mdadnankhalid/cvmpp/src/parser.cpp \
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__cstddef/nullptr_t.h:
 
+/Users/mdadnankhalid/cvmpp/include/cvm/value.hpp:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__algorithm/inplace_merge.h:
+
 /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__algorithm/for_each_segment.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__algorithm/find_if_not.h:
@@ -4770,8 +4781,6 @@ CMakeFiles/cvm.dir/src/parser.cpp.o: /Users/mdadnankhalid/cvmpp/src/parser.cpp \
 /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_wchar.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/arm/_types.h:
-
-/Users/mdadnankhalid/cvmpp/include/cvm/lexer.hpp:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__type_traits/remove_cv.h:
 

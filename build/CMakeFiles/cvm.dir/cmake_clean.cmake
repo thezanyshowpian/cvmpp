@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/cvm.dir/src/compiler.cpp.o"
+  "CMakeFiles/cvm.dir/src/compiler.cpp.o.d"
   "CMakeFiles/cvm.dir/src/disassembler.cpp.o"
   "CMakeFiles/cvm.dir/src/disassembler.cpp.o.d"
   "CMakeFiles/cvm.dir/src/lexer.cpp.o"

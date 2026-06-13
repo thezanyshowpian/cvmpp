@@ -607,6 +607,7 @@ CMakeFiles/test_parser.dir/src/disassembler.cpp.o
  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/format
  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/functional
  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/initializer_list
+ /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/iomanip
  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/ios
  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/iosfwd
  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/iostream
@@ -794,7 +795,9 @@ CMakeFiles/test_parser.dir/src/disassembler.cpp.o
  /Library/Developer/CommandLineTools/usr/lib/clang/17/include/stddef.h
  /Library/Developer/CommandLineTools/usr/lib/clang/17/include/stdint.h
  /Users/mdadnankhalid/cvmpp/include/cvm/ast.hpp
+ /Users/mdadnankhalid/cvmpp/include/cvm/chunk.hpp
  /Users/mdadnankhalid/cvmpp/include/cvm/disassembler.hpp
+ /Users/mdadnankhalid/cvmpp/include/cvm/opcode.hpp
  /Users/mdadnankhalid/cvmpp/include/cvm/token.hpp
  /Users/mdadnankhalid/cvmpp/include/cvm/value.hpp
 
@@ -3184,8 +3187,10 @@ CMakeFiles/test_parser.dir/tests/test_parser.cpp.o
  /Library/Developer/CommandLineTools/usr/lib/clang/17/include/stddef.h
  /Library/Developer/CommandLineTools/usr/lib/clang/17/include/stdint.h
  /Users/mdadnankhalid/cvmpp/include/cvm/ast.hpp
+ /Users/mdadnankhalid/cvmpp/include/cvm/chunk.hpp
  /Users/mdadnankhalid/cvmpp/include/cvm/disassembler.hpp
  /Users/mdadnankhalid/cvmpp/include/cvm/lexer.hpp
+ /Users/mdadnankhalid/cvmpp/include/cvm/opcode.hpp
  /Users/mdadnankhalid/cvmpp/include/cvm/parser.hpp
  /Users/mdadnankhalid/cvmpp/include/cvm/token.hpp
  /Users/mdadnankhalid/cvmpp/include/cvm/value.hpp

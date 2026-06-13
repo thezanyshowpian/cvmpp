@@ -1,0 +1,1 @@
+/usr/bin/c++ -g -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/test_disassembler.dir/tests/test_disassembler.cpp.o CMakeFiles/test_disassembler.dir/src/disassembler.cpp.o -o test_disassembler

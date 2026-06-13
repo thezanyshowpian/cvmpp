@@ -1,10 +1,10 @@
-Start testing: Jun 13 21:11 IST
+Start testing: Jun 13 21:42 IST
 ----------------------------------------------------------
-1/2 Testing: LexerPhase1
-1/2 Test: LexerPhase1
+1/4 Testing: LexerPhase1
+1/4 Test: LexerPhase1
 Command: "/Users/mdadnankhalid/cvmpp/build/test_lexer"
 Directory: /Users/mdadnankhalid/cvmpp/build
-"LexerPhase1" start time: Jun 13 21:11 IST
+"LexerPhase1" start time: Jun 13 21:42 IST
 Output:
 ----------------------------------------------------------
 --- testBasicStream ---
@@ -72,24 +72,156 @@ All tests passed.
 Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
-"LexerPhase1" end time: Jun 13 21:11 IST
+"LexerPhase1" end time: Jun 13 21:42 IST
 "LexerPhase1" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-2/2 Testing: ParserPhase2
-2/2 Test: ParserPhase2
+2/4 Testing: ParserPhase2
+2/4 Test: ParserPhase2
 Command: "/Users/mdadnankhalid/cvmpp/build/test_parser"
 Directory: /Users/mdadnankhalid/cvmpp/build
-"ParserPhase2" start time: Jun 13 21:11 IST
+"ParserPhase2" start time: Jun 13 21:42 IST
 Output:
 ----------------------------------------------------------
 All parser tests passed.
 <end of output>
-Test time =   0.60 sec
+Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
-"ParserPhase2" end time: Jun 13 21:11 IST
+"ParserPhase2" end time: Jun 13 21:42 IST
 "ParserPhase2" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-End testing: Jun 13 21:11 IST
+3/4 Testing: ChunkDisasmPhase3
+3/4 Test: ChunkDisasmPhase3
+Command: "/Users/mdadnankhalid/cvmpp/build/test_disassembler"
+Directory: /Users/mdadnankhalid/cvmpp/build
+"ChunkDisasmPhase3" start time: Jun 13 21:42 IST
+Output:
+----------------------------------------------------------
+Test A: Chunk API
+  PASS: first addConstant returns 0
+  PASS: second addConstant returns 1
+  PASS: constants pool has 2 entries
+  PASS: first addIdentifier returns 0
+  PASS: second addIdentifier returns 1
+  PASS: code has 1 byte after writeByte
+  PASS: lines has 1 entry after writeByte
+  PASS: code[0] is 0xAB
+  PASS: lines[0] is 5
+  PASS: code has 2 bytes after writeOpCode
+  PASS: code[1] encodes OP_HALT
+  PASS: writeShort writes 2 bytes
+  PASS: writeShort hi byte is 0x01
+  PASS: writeShort lo byte is 0x02
+  PASS: writeShort records line for both bytes
+
+Test B: Disassembler output
+== print 42+10 ==
+0000    1 OP_CONSTANT            0 '42'
+0002    | OP_CONSTANT            1 '10'
+0004    | OP_ADD
+0005    | OP_PRINT
+0006    2 OP_HALT
+  PASS: disassembly output matches expected
+
+Test C: Global instruction disassembly
+== globals ==
+0000    1 OP_CONSTANT            0 '0'
+0002    | OP_DEFINE_GLOBAL       0 'counter'
+0004    2 OP_GET_GLOBAL          0 'counter'
+0006    | OP_HALT
+  PASS: OP_DEFINE_GLOBAL shows identifier name
+  PASS: OP_GET_GLOBAL is present
+
+Test D: Jump instruction disassembly
+== jump ==
+0000    1 OP_JUMP                3 -> 0006
+0003    | OP_HALT
+  PASS: OP_JUMP is present
+  PASS: jump target is 0006
+
+20 passed, 0 failed
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"ChunkDisasmPhase3" end time: Jun 13 21:42 IST
+"ChunkDisasmPhase3" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/4 Testing: CompilerPhase4
+4/4 Test: CompilerPhase4
+Command: "/Users/mdadnankhalid/cvmpp/build/test_compiler"
+Directory: /Users/mdadnankhalid/cvmpp/build
+"CompilerPhase4" start time: Jun 13 21:42 IST
+Output:
+----------------------------------------------------------
+Test A: integer literal
+  PASS: code is 4 bytes
+  PASS: byte 0: OP_CONSTANT
+  PASS: byte 1: constant index 0
+  PASS: byte 2: OP_POP
+  PASS: byte 3: OP_HALT
+  PASS: one constant in pool
+  PASS: constant type is INT
+  PASS: constant value is 42
+
+Test B: boolean literals
+  PASS: true: code is 3 bytes
+  PASS: true: byte 0 is OP_TRUE
+  PASS: true: byte 1 is OP_POP
+  PASS: true: byte 2 is OP_HALT
+  PASS: true: no constants in pool
+  PASS: false: byte 0 is OP_FALSE
+
+Test C: unary negation
+  PASS: code is 5 bytes
+  PASS: byte 0: OP_CONSTANT
+  PASS: byte 1: constant index 0
+  PASS: byte 2: OP_NEGATE
+  PASS: byte 3: OP_POP
+  PASS: byte 4: OP_HALT
+  PASS: constant value is 5 (negated at runtime)
+
+Test D: 1 + 2 * 3  (precedence)
+  PASS: code is 10 bytes
+  PASS: byte 0: OP_CONSTANT
+  PASS: byte 1: idx 0  (value 1)
+  PASS: byte 2: OP_CONSTANT
+  PASS: byte 3: idx 1  (value 2)
+  PASS: byte 4: OP_CONSTANT
+  PASS: byte 5: idx 2  (value 3)
+  PASS: byte 6: OP_MUL   (2*3 first)
+  PASS: byte 7: OP_ADD   (then +1)
+  PASS: byte 8: OP_POP
+  PASS: byte 9: OP_HALT
+  PASS: three constants in pool
+  PASS: constants[0] == 1
+  PASS: constants[1] == 2
+  PASS: constants[2] == 3
+
+Test E: comparison operators
+  PASS: 1 < 2 emits OP_LESS
+  PASS: 1 == 1 emits OP_EQUAL
+
+Test F: subtraction and division
+  PASS: 10 - 3 emits OP_SUB
+  PASS: 8 / 4 emits OP_DIV
+
+Test G: multiple expression statements
+  PASS: two stmts = 7 bytes
+  PASS: first stmt ends with POP
+  PASS: second stmt ends with POP
+  PASS: program ends with HALT
+
+44 passed, 0 failed
+<end of output>
+Test time =   0.60 sec
+----------------------------------------------------------
+Test Passed.
+"CompilerPhase4" end time: Jun 13 21:42 IST
+"CompilerPhase4" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Jun 13 21:42 IST

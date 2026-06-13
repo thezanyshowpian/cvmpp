@@ -13,6 +13,7 @@ add_executable(cvm
     src/main.cpp
     src/lexer.cpp
     src/parser.cpp
+    src/compiler.cpp
     src/disassembler.cpp
 )
 
@@ -37,3 +38,12 @@ add_executable(test_disassembler
     src/disassembler.cpp
 )
 add_test(NAME ChunkDisasmPhase3 COMMAND test_disassembler)
+
+add_executable(test_compiler
+    tests/test_compiler.cpp
+    src/lexer.cpp
+    src/parser.cpp
+    src/compiler.cpp
+    src/disassembler.cpp
+)
+add_test(NAME CompilerPhase4 COMMAND test_compiler)

@@ -754,6 +754,8 @@ CMakeFiles/test_parser.dir/tests/test_parser.cpp.o: \
   /Users/mdadnankhalid/cvmpp/include/cvm/ast.hpp \
   /Users/mdadnankhalid/cvmpp/include/cvm/token.hpp \
   /Users/mdadnankhalid/cvmpp/include/cvm/value.hpp \
+  /Users/mdadnankhalid/cvmpp/include/cvm/chunk.hpp \
+  /Users/mdadnankhalid/cvmpp/include/cvm/opcode.hpp \
   /Users/mdadnankhalid/cvmpp/include/cvm/lexer.hpp \
   /Users/mdadnankhalid/cvmpp/include/cvm/parser.hpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/iostream \
