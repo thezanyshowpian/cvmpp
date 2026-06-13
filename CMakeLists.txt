@@ -9,4 +9,8 @@ add_compile_options(-Wall -Wextra -Wpedantic)
 
 include_directories(include)
 
-add_executable(cvm src/main.cpp)
+add_executable(cvm src/main.cpp src/lexer.cpp)
+
+enable_testing()
+add_executable(test_lexer tests/test_lexer.cpp src/lexer.cpp)
+add_test(NAME LexerPhase1 COMMAND test_lexer)

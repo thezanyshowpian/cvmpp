@@ -1,0 +1,79 @@
+Start testing: Jun 13 20:53 IST
+----------------------------------------------------------
+1/1 Testing: LexerPhase1
+1/1 Test: LexerPhase1
+Command: "/Users/mdadnankhalid/cvmpp/build/test_lexer"
+Directory: /Users/mdadnankhalid/cvmpp/build
+"LexerPhase1" start time: Jun 13 20:53 IST
+Output:
+----------------------------------------------------------
+--- testBasicStream ---
+  PASS  token count == 8
+  PASS  tokens[0]: type
+  PASS  tokens[0]: lexeme='let' got='let'
+  PASS  tokens[0]: line
+  PASS  tokens[1]: type
+  PASS  tokens[1]: lexeme='x' got='x'
+  PASS  tokens[1]: line
+  PASS  tokens[2]: type
+  PASS  tokens[2]: lexeme='=' got='='
+  PASS  tokens[2]: line
+  PASS  tokens[3]: type
+  PASS  tokens[3]: lexeme='10' got='10'
+  PASS  tokens[3]: line
+  PASS  tokens[4]: type
+  PASS  tokens[4]: lexeme='==' got='=='
+  PASS  tokens[4]: line
+  PASS  tokens[5]: type
+  PASS  tokens[5]: lexeme='5' got='5'
+  PASS  tokens[5]: line
+  PASS  tokens[6]: type
+  PASS  tokens[6]: lexeme=';' got=';'
+  PASS  tokens[6]: line
+  PASS  tokens[7]: type
+  PASS  tokens[7]: lexeme='' got=''
+  PASS  tokens[7]: line
+--- testCommentAndLineTracking ---
+  PASS  token count == 2 (LET + END)
+  PASS  tokens[0] on line 2: type
+  PASS  tokens[0] on line 2: lexeme='let' got='let'
+  PASS  tokens[0] on line 2: line
+  PASS  tokens[1] END: type
+  PASS  tokens[1] END: lexeme='' got=''
+  PASS  tokens[1] END: line
+--- testOperatorsAndPunctuation ---
+  PASS  9 operators + END
+  PASS  PLUS
+  PASS  MINUS
+  PASS  STAR
+  PASS  SLASH
+  PASS  LESS
+  PASS  LEFT_PAREN
+  PASS  RIGHT_PAREN
+  PASS  LEFT_BRACE
+  PASS  RIGHT_BRACE
+--- testKeywords ---
+  PASS  8 keywords + END
+  PASS  LET
+  PASS  PRINT
+  PASS  INPUT
+  PASS  IF
+  PASS  ELSE
+  PASS  WHILE
+  PASS  TRUE
+  PASS  FALSE
+--- testLexicalError ---
+[line 1] Lexer error: unexpected character '@'
+  PASS  at least ERROR + NUMBER or similar
+  PASS  first token is ERROR
+
+All tests passed.
+<end of output>
+Test time =   0.48 sec
+----------------------------------------------------------
+Test Passed.
+"LexerPhase1" end time: Jun 13 20:53 IST
+"LexerPhase1" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Jun 13 20:53 IST

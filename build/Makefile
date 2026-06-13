@@ -65,6 +65,16 @@ CMAKE_BINARY_DIR = /Users/mdadnankhalid/cvmpp/build
 #=============================================================================
 # Targets provided globally by CMake.
 
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running tests..."
+	/opt/homebrew/bin/ctest $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+.PHONY : test/fast
+
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running CMake cache editor..."
@@ -129,6 +139,46 @@ cvm/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cvm.dir/build.make CMakeFiles/cvm.dir/build
 .PHONY : cvm/fast
 
+#=============================================================================
+# Target rules for targets named test_lexer
+
+# Build rule for target.
+test_lexer: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_lexer
+.PHONY : test_lexer
+
+# fast build rule for target.
+test_lexer/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_lexer.dir/build.make CMakeFiles/test_lexer.dir/build
+.PHONY : test_lexer/fast
+
+src/lexer.o: src/lexer.cpp.o
+.PHONY : src/lexer.o
+
+# target to build an object file
+src/lexer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cvm.dir/build.make CMakeFiles/cvm.dir/src/lexer.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_lexer.dir/build.make CMakeFiles/test_lexer.dir/src/lexer.cpp.o
+.PHONY : src/lexer.cpp.o
+
+src/lexer.i: src/lexer.cpp.i
+.PHONY : src/lexer.i
+
+# target to preprocess a source file
+src/lexer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cvm.dir/build.make CMakeFiles/cvm.dir/src/lexer.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_lexer.dir/build.make CMakeFiles/test_lexer.dir/src/lexer.cpp.i
+.PHONY : src/lexer.cpp.i
+
+src/lexer.s: src/lexer.cpp.s
+.PHONY : src/lexer.s
+
+# target to generate assembly for a file
+src/lexer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cvm.dir/build.make CMakeFiles/cvm.dir/src/lexer.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_lexer.dir/build.make CMakeFiles/test_lexer.dir/src/lexer.cpp.s
+.PHONY : src/lexer.cpp.s
+
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
@@ -153,6 +203,30 @@ src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cvm.dir/build.make CMakeFiles/cvm.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
+tests/test_lexer.o: tests/test_lexer.cpp.o
+.PHONY : tests/test_lexer.o
+
+# target to build an object file
+tests/test_lexer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_lexer.dir/build.make CMakeFiles/test_lexer.dir/tests/test_lexer.cpp.o
+.PHONY : tests/test_lexer.cpp.o
+
+tests/test_lexer.i: tests/test_lexer.cpp.i
+.PHONY : tests/test_lexer.i
+
+# target to preprocess a source file
+tests/test_lexer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_lexer.dir/build.make CMakeFiles/test_lexer.dir/tests/test_lexer.cpp.i
+.PHONY : tests/test_lexer.cpp.i
+
+tests/test_lexer.s: tests/test_lexer.cpp.s
+.PHONY : tests/test_lexer.s
+
+# target to generate assembly for a file
+tests/test_lexer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_lexer.dir/build.make CMakeFiles/test_lexer.dir/tests/test_lexer.cpp.s
+.PHONY : tests/test_lexer.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -161,10 +235,18 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... test"
 	@echo "... cvm"
+	@echo "... test_lexer"
+	@echo "... src/lexer.o"
+	@echo "... src/lexer.i"
+	@echo "... src/lexer.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... tests/test_lexer.o"
+	@echo "... tests/test_lexer.i"
+	@echo "... tests/test_lexer.s"
 .PHONY : help
 
 

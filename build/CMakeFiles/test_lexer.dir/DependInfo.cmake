@@ -8,8 +8,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/Users/mdadnankhalid/cvmpp/src/lexer.cpp" "CMakeFiles/cvm.dir/src/lexer.cpp.o" "gcc" "CMakeFiles/cvm.dir/src/lexer.cpp.o.d"
-  "/Users/mdadnankhalid/cvmpp/src/main.cpp" "CMakeFiles/cvm.dir/src/main.cpp.o" "gcc" "CMakeFiles/cvm.dir/src/main.cpp.o.d"
+  "/Users/mdadnankhalid/cvmpp/src/lexer.cpp" "CMakeFiles/test_lexer.dir/src/lexer.cpp.o" "gcc" "CMakeFiles/test_lexer.dir/src/lexer.cpp.o.d"
+  "/Users/mdadnankhalid/cvmpp/tests/test_lexer.cpp" "CMakeFiles/test_lexer.dir/tests/test_lexer.cpp.o" "gcc" "CMakeFiles/test_lexer.dir/tests/test_lexer.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.
