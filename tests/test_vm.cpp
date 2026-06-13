@@ -121,6 +121,28 @@ static void testUnaryNegate() {
     check(out == "3\n",   "-5 + 8 = 3");
 }
 
+// ── Test H: globals ───────────────────────────────────────────────────────────
+
+static void testGlobals() {
+    std::cout << "\nTest H: globals\n";
+    std::string out;
+    int rc = runVM("let x = 10; let y = 20; x = x + y; print x;", &out, nullptr);
+    check(rc == 0,        "exit code 0");
+    check(out == "30\n",  "prints 30");
+}
+
+// ── Test I: undefined variable error ─────────────────────────────────────────
+
+static void testUndefinedVariable() {
+    std::cout << "\nTest I: undefined variable\n";
+    std::string err;
+    int rc = runVM("print z;", nullptr, &err);
+    check(rc == 70,                                              "exit code 70");
+    check(err.find("Runtime error") != std::string::npos,       "stderr contains 'Runtime error'");
+    check(err.find("[line 1]") != std::string::npos,            "stderr contains line number");
+    check(err.find("undefined variable") != std::string::npos,  "stderr names the variable");
+}
+
 int main() {
     testIntPrint();
     testArithmetic();
@@ -129,6 +151,8 @@ int main() {
     testDivisionByZero();
     testComparisons();
     testUnaryNegate();
+    testGlobals();
+    testUndefinedVariable();
 
     std::cout << '\n' << g_passed << " passed, " << g_failed << " failed\n";
     return g_failed == 0 ? 0 : 1;

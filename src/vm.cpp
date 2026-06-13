@@ -20,6 +20,7 @@ Value VM::peek() const { return stack_.back(); }
 
 int VM::execute(const Chunk& chunk) {
     stack_.clear();
+    globals_.clear();
     size_t ip = 0;
 
     for (;;) {
@@ -111,6 +112,47 @@ int VM::execute(const Chunk& chunk) {
         case OpCode::OP_POP:
             pop();
             break;
+
+        case OpCode::OP_DEFINE_GLOBAL: {
+            uint8_t idx = chunk.code[ip++];
+            globals_[chunk.identifiers[idx]] = pop();
+            break;
+        }
+
+        case OpCode::OP_GET_GLOBAL: {
+            uint8_t idx = chunk.code[ip++];
+            const std::string& name = chunk.identifiers[idx];
+            auto it = globals_.find(name);
+            if (it == globals_.end())
+                return runtimeError(line, "undefined variable '" + name + "'");
+            push(it->second);
+            break;
+        }
+
+        case OpCode::OP_SET_GLOBAL: {
+            uint8_t idx = chunk.code[ip++];
+            const std::string& name = chunk.identifiers[idx];
+            if (globals_.find(name) == globals_.end())
+                return runtimeError(line, "undefined variable '" + name + "'");
+            globals_[name] = peek();
+            break;
+        }
+
+        case OpCode::OP_INPUT: {
+            std::string buf;
+            if (!std::getline(std::cin, buf))
+                return runtimeError(line, "input: failed to read line");
+            try {
+                size_t pos;
+                int64_t val = std::stoll(buf, &pos);
+                if (pos != buf.size())
+                    return runtimeError(line, "input: not a valid integer");
+                push(Value::makeInt(val));
+            } catch (...) {
+                return runtimeError(line, "input: not a valid integer");
+            }
+            break;
+        }
 
         case OpCode::OP_HALT:
             return 0;

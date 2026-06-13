@@ -15,6 +15,7 @@ private:
 
     void compileExpr(Expr& e);
     void error(int line, const std::string& msg);
+    int  identifierIndex(const std::string& name);
 
     // ExprVisitor
     void visitLiteralExpr(Literal& e)   override;

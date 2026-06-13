@@ -10,6 +10,12 @@ void Compiler::compileExpr(Expr& e) {
     e.accept(*this);
 }
 
+int Compiler::identifierIndex(const std::string& name) {
+    for (int i = 0; i < static_cast<int>(chunk_.identifiers.size()); ++i)
+        if (chunk_.identifiers[i] == name) return i;
+    return chunk_.addIdentifier(name);
+}
+
 Chunk Compiler::compile(const std::vector<StmtPtr>& stmts) {
     chunk_    = Chunk{};
     hadError_ = false;
@@ -53,15 +59,20 @@ void Compiler::visitBinaryExpr(Binary& e) {
 }
 
 void Compiler::visitVariableExpr(Variable& e) {
-    error(e.line, "variables not yet implemented (phase 6)");
+    int idx = identifierIndex(e.name.lexeme);
+    chunk_.writeOpCode(OpCode::OP_GET_GLOBAL, e.line);
+    chunk_.writeByte(static_cast<uint8_t>(idx), e.line);
 }
 
 void Compiler::visitAssignExpr(Assign& e) {
-    error(e.line, "assignment not yet implemented (phase 6)");
+    compileExpr(*e.value);
+    int idx = identifierIndex(e.name.lexeme);
+    chunk_.writeOpCode(OpCode::OP_SET_GLOBAL, e.line);
+    chunk_.writeByte(static_cast<uint8_t>(idx), e.line);
 }
 
 void Compiler::visitInputExpr(Input& e) {
-    error(e.line, "input not yet implemented (phase 6)");
+    chunk_.writeOpCode(OpCode::OP_INPUT, e.line);
 }
 
 // ── StmtVisitor ───────────────────────────────────────────────────────────────
@@ -72,7 +83,10 @@ void Compiler::visitExprStmt(ExprStmt& s) {
 }
 
 void Compiler::visitLetStmt(LetStmt& s) {
-    error(s.line, "let statement not yet implemented (phase 6)");
+    compileExpr(*s.initializer);
+    int idx = identifierIndex(s.name.lexeme);
+    chunk_.writeOpCode(OpCode::OP_DEFINE_GLOBAL, s.line);
+    chunk_.writeByte(static_cast<uint8_t>(idx), s.line);
 }
 
 void Compiler::visitPrintStmt(PrintStmt& s) {
